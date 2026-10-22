@@ -61,7 +61,7 @@ body {
     background: rgba(10, 12, 18, 0.9);
     border: 1px solid rgba(212, 175, 55, 0.35);
     border-radius: 25px;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 0.4rem 0.3rem 1rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -78,6 +78,25 @@ body {
     color: var(--text-secondary);
 }
 
+.submit-order-btn {
+    background: linear-gradient(135deg, #d4af37, #aa8c2c);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #000;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.submit-order-btn:active {
+    transform: scale(0.9);
+}
+
 .main-content {
     padding: 1.5rem;
 }
@@ -90,6 +109,7 @@ body {
     padding: 1.8rem;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    margin-bottom: 1.5rem;
 }
 
 .hero-card h2 {
@@ -105,7 +125,39 @@ body {
     line-height: 1.5;
 }
 
-/* Bottom Navigation Bar Styles with Smooth Slide & Scale Animation */
+/* Execution Panel Styles */
+.execution-panel {
+    background: rgba(14, 17, 26, 0.9);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.execution-panel h3 {
+    font-size: 1.05rem;
+    color: var(--gold-accent);
+    margin-bottom: 0.5rem;
+}
+
+.execution-panel p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+}
+
+.status-badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold-accent);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Bottom Navigation Bar Styles with Animation */
 .bottom-nav {
     position: fixed;
     bottom: 0;
@@ -146,7 +198,6 @@ body {
     transition: opacity 0.3s ease;
 }
 
-/* Active State Animation: Slide Up & Scale */
 .bottom-nav-item.active {
     color: var(--gold-accent);
 }
