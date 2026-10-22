@@ -8,18 +8,34 @@
 </head>
 <body>
 
-    <!-- Top Navigation: Profile, Search, Settings -->
+    <!-- Top Navigation: Professional Profile, AI Order Input, Settings -->
     <header class="top-nav">
-        <div class="profile-icon" title="User Profile">👤</div>
-        <div class="search-container">
-            <input type="text" placeholder="Search agents, projects..." id="searchInput">
+        <!-- Professional User Profile Icon -->
+        <div class="nav-icon" title="User Profile">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
         </div>
-        <div class="settings-icon" title="Settings">⚙️</div>
+
+        <!-- Main Order / AI Prompt Input Box -->
+        <div class="order-input-container">
+            <input type="text" placeholder="Describe your project or order for AI..." id="orderInput">
+            <button class="ai-send-btn" title="Submit to AI">✨</button>
+        </div>
+
+        <!-- Professional Settings Icon -->
+        <div class="nav-icon" title="Settings">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+        </div>
     </header>
 
     <main class="main-content">
         <section class="hero-card">
-            <h1>AI-Human Freelancing Marketplace</h1>
+            <h2>AI-Human Freelancing Marketplace</h2>
             <p>Deploy 1-2 free foundational agents or scale up to 15-20 autonomous tiered models.</p>
         </section>
     </main>
