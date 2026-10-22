@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- Top Navigation: Profile, Clean Order Input, Settings -->
+    <!-- Top Navigation: Profile, Order Input, Settings -->
     <header class="top-nav">
         <!-- Professional User Profile Icon -->
         <div class="nav-icon" title="User Profile">
@@ -20,7 +20,8 @@
 
         <!-- Main Order / AI Prompt Input Box -->
         <div class="order-input-container">
-            <input type="text" placeholder="Describe your project or order..." id="orderInput">
+            <input type="text" placeholder="Describe your project or order for AI..." id="orderInput">
+            <button class="submit-order-btn" onclick="submitOrder()" title="Execute Order">➔</button>
         </div>
 
         <!-- Professional Settings Icon -->
@@ -36,6 +37,15 @@
         <section class="hero-card">
             <h2>AI-Human Freelancing Marketplace</h2>
             <p>Deploy 1-2 free foundational agents or scale up to 15-20 autonomous tiered models.</p>
+        </section>
+
+        <!-- Order Execution & Agent Assignment Viewer Panel -->
+        <section class="execution-panel" id="executionPanel">
+            <h3>Active Order & Agent Swarm Status</h3>
+            <p id="orderStatusText">Enter your project above to assign agent tiers and begin execution.</p>
+            <div class="agent-tier-status" id="agentTierStatus">
+                <span class="status-badge">Idle</span>
+            </div>
         </section>
     </main>
 
@@ -64,13 +74,6 @@
         </button>
     </nav>
 
-    <script>
-        function setActiveTab(element) {
-            const items = document.querySelectorAll('.bottom-nav-item');
-            items.forEach(item => item.classList.remove('active'));
-            element.classList.add('active');
-        }
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
