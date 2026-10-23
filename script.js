@@ -1,15 +1,31 @@
-// Tab Switching Animation Logic
-function setActiveTab(element) {
-    const items = document.querySelectorAll('.bottom-nav-item');
-    items.forEach(item => item.classList.remove('active'));
-    element.classList.add('active');
-}
+// Clean Event Listeners for Bottom Navigation Tabs
+document.addEventListener('DOMContentLoaded', () => {
+    const navItems = document.querySelectorAll('.bottom-nav-item');
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            navItems.forEach(nav => nav.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Enter key support for input
+    const orderInput = document.getElementById('orderInput');
+    if (orderInput) {
+        orderInput.endswith = ''; // placeholder safeguard
+        orderInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                submitOrder();
+            }
+        });
+    }
+});
 
 // Chat & Order Execution Viewer Logic
 function submitOrder() {
     const orderInput = document.getElementById('orderInput');
     const chatContainer = document.getElementById('chatContainer');
     
+    if (!orderInput) return;
     const query = orderInput.value.trim();
     if (!query) return;
 
@@ -40,19 +56,14 @@ function submitOrder() {
         // Simulate progress update inside the card
         const badge = aiMsg.querySelector('.exec-status-badge');
         setTimeout(() => {
-            badge.textContent = '✓ Execution Completed & Code Generated';
-            badge.style.background = 'rgba(16, 185, 129, 0.2)';
-            badge.style.color = '#10b981';
-            badge.style.borderColor = 'rgba(16, 185, 129, 0.4)';
-            chatContainer.scrollTop = chatContainer.scrollHeight;
+            if (badge) {
+                badge.textContent = '✓ Execution Completed & Code Generated';
+                badge.style.background = 'rgba(16, 185, 129, 0.2)';
+                badge.style.color = '#10b981';
+                badge.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
         }, 2500);
 
     }, 1000);
 }
-
-// Allow Enter key to send message
-document.getElementById('orderInput').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        submitOrder();
-    }
-});
