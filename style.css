@@ -52,7 +52,13 @@ body {
     height: 40px;
     cursor: pointer;
     transition: all 0.3s ease;
+    outline: none;
 }
+
+.nav-icon svg {
+    display: block;
+}
+
 
 .nav-icon:hover {
     background: var(--gold-bright);
