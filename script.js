@@ -5,7 +5,7 @@ function setActiveTab(element) {
     element.classList.add('active');
 }
 
-// Chat Message Sending Logic
+// Chat & Order Execution Viewer Logic
 function submitOrder() {
     const orderInput = document.getElementById('orderInput');
     const chatContainer = document.getElementById('chatContainer');
@@ -14,22 +14,39 @@ function submitOrder() {
     if (!query) return;
 
     // 1. Append User Message (Right Side)
-    const userMsgDiv = document.createElement('div');
-    userMsgDiv.className = 'message user-message';
-    userMsgDiv.textContent = query;
-    chatContainer.appendChild(userMsgDiv);
+    const userMsg = document.createElement('div');
+    userMsg.className = 'message user-message';
+    userMsg.textContent = query;
+    chatContainer.appendChild(userMsg);
 
-    // Clear Input
     orderInput.value = '';
     chatContainer.scrollTop = chatContainer.scrollHeight;
 
-    // 2. Simulate AI Response after 1 second (Left Side)
+    // 2. Simulate AI Response with Interactive Execution Viewer Card (Left Side)
     setTimeout(() => {
-        const aiMsgDiv = document.createElement('div');
-        aiMsgDiv.className = 'message ai-message';
-        aiMsgDiv.textContent = `Order received! Deploying autonomous agents for: "${query}". Execution pipeline started successfully.`;
-        chatContainer.appendChild(aiMsgDiv);
+        const aiMsg = document.createElement('div');
+        aiMsg.className = 'message ai-message';
+        aiMsg.innerHTML = `
+            <div>Order received. Initializing autonomous multi-agent pipeline for your request.</div>
+            <div class="execution-card">
+                <h4>Agent Swarm Viewer</h4>
+                <div class="execution-info">Project: "${query}"</div>
+                <div class="exec-status-badge" id="statusBadge-${Date.now()}">Deploying 15-20 Autonomous Swarm Models...</div>
+            </div>
+        `;
+        chatContainer.appendChild(aiMsg);
         chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        // Simulate progress update inside the card
+        const badge = aiMsg.querySelector('.exec-status-badge');
+        setTimeout(() => {
+            badge.textContent = '✓ Execution Completed & Code Generated';
+            badge.style.background = 'rgba(16, 185, 129, 0.2)';
+            badge.style.color = '#10b981';
+            badge.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }, 2500);
+
     }, 1000);
 }
 
