@@ -5,30 +5,35 @@ function setActiveTab(element) {
     element.classList.add('active');
 }
 
-// Order Submission & Agent Swarm Execution Logic
+// Chat Message Sending Logic
 function submitOrder() {
     const orderInput = document.getElementById('orderInput');
-    const orderStatusText = document.getElementById('orderStatusText');
-    const agentTierStatus = document.getElementById('agentTierStatus');
+    const chatContainer = document.getElementById('chatContainer');
     
     const query = orderInput.value.trim();
-    if (!query) {
-        alert('Bhai, pehle kuch project description toh likh!');
-        return;
-    }
+    if (!query) return;
 
-    // Update UI to show live processing state
-    orderStatusText.innerHTML = `Processing Order: "<strong>${query}</strong>"`;
-    agentTierStatus.innerHTML = `<span class="status-badge" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6; border-color: rgba(59, 130, 246, 0.4);">Assigning 15-20 Autonomous Swarm Agents...</span>`;
+    // 1. Append User Message (Right Side)
+    const userMsgDiv = document.createElement('div');
+    userMsgDiv.className = 'message user-message';
+    userMsgDiv.textContent = query;
+    chatContainer.appendChild(userMsgDiv);
 
-    setTimeout(() => {
-        agentTierStatus.innerHTML = `<span class="status-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981; border-color: rgba(16, 185, 129, 0.4);">✓ Execution Completed via AI Collaborative Pipeline</span>`;
-    }, 2000);
-
+    // Clear Input
     orderInput.value = '';
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
+    // 2. Simulate AI Response after 1 second (Left Side)
+    setTimeout(() => {
+        const aiMsgDiv = document.createElement('div');
+        aiMsgDiv.className = 'message ai-message';
+        aiMsgDiv.textContent = `Order received! Deploying autonomous agents for: "${query}". Execution pipeline started successfully.`;
+        chatContainer.appendChild(aiMsgDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }, 1000);
 }
 
-// Allow Enter key to submit order
+// Allow Enter key to send message
 document.getElementById('orderInput').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         submitOrder();
